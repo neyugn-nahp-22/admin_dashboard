@@ -1,6 +1,6 @@
 import Content from "./components/Content";
 import Sidebar from "./components/Sidebar";
-import "./App.css";
+import './App.css'
 
 function App() {
   return (

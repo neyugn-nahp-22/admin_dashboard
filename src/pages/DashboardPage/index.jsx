@@ -1,11 +1,7 @@
 import Dashboard from "../../components/Sidebar/Dashboard";
 
 function DashboardPage() {
-  return (
-    <div>
-      <Dashboard />
-    </div>
-  );
+  return <Dashboard />;
 }
 
 export default DashboardPage;

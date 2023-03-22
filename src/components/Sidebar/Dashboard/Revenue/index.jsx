@@ -57,7 +57,9 @@ function Revenue() {
     <Card className={cx("wrapper")}>
       <Space>
         <Button onClick={() => navigate(config.routes.subcription)}>Subcription</Button>
-        <Button onClick={() => navigate(config.routes.revenue)}>Revenue</Button>
+        <Button className={cx("more-btn")} onClick={() => navigate(config.routes.revenue)}>
+          Revenue
+        </Button>
       </Space>
       <Bar options={options} data={data} />
     </Card>
