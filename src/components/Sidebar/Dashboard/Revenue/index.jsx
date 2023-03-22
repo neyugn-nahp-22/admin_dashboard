@@ -1,4 +1,4 @@
-import { Button, Card } from "antd";
+import { Button, Card, Space } from "antd";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -12,6 +12,8 @@ import {
 import { Bar } from "react-chartjs-2";
 import classNames from "classnames/bind";
 import styles from "./Revenue.module.scss";
+import { useNavigate } from "react-router-dom";
+import config from "../../../../config";
 
 const cx = classNames.bind(styles);
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
@@ -50,10 +52,13 @@ function Revenue() {
       },
     ],
   };
+  const navigate = useNavigate();
   return (
     <Card className={cx("wrapper")}>
-      <Button>Subcription</Button>
-      <Button>Revenue</Button>
+      <Space>
+        <Button onClick={() => navigate(config.routes.subcription)}>Subcription</Button>
+        <Button onClick={() => navigate(config.routes.revenue)}>Revenue</Button>
+      </Space>
       <Bar options={options} data={data} />
     </Card>
   );
