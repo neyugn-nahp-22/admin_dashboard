@@ -29,6 +29,7 @@ function Settings() {
     console.log("Selected Time: ", value);
     console.log("Formatted Selected Time: ", dateString);
   };
+
   return (
     <div style={{ backgroundColor: `#${color}` }} className={cx("wrapper")}>
       <Typography.Title level={4} className={cx("title")}>
@@ -84,7 +85,7 @@ function Settings() {
                     },
                     {
                       type: "email",
-                      message: "Email is invalid",
+                      message: "Vui lòng nhập đúng định dạng email",
                     },
                   ]}
                 >
