@@ -3,13 +3,13 @@ import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  BarElement,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
   Legend,
 } from "chart.js";
-
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import classNames from "classnames/bind";
 import styles from "./Subcription.module.scss";
 import { useNavigate } from "react-router-dom";
@@ -17,7 +17,7 @@ import config from "../../../../config";
 
 const cx = classNames.bind(styles);
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 function Subcription() {
   const options = {
@@ -28,28 +28,27 @@ function Subcription() {
       },
       title: {
         display: true,
-        text: "Chart.js Bar Chart",
+        text: "Average High & Low Temperature",
       },
     },
   };
 
-  const labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  const labels = ["January", "February", "March", "April", "May", "June", "July"];
 
   const data = {
     labels,
     datasets: [
       {
-        label: "Dataset 2",
-        data: [100, 130, 123, 153, 124, 175, 143],
-        backgroundColor: [
-          "rgba(53, 162, 235, 0.5)",
-          "rgba(53, 162, 235, 0.5)",
-          "rgba(53, 162, 235, 0.5)",
-          "rgba(53, 162, 235, 0.5)",
-          "rgba(53, 162, 235, 0.5)",
-          "rgba(53, 162, 235, 0.5)",
-          "rgba(53, 162, 235, 0.5)",
-        ],
+        label: "High",
+        data: [30, 35, 36, 43, 30, 41, 27],
+        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+      },
+      {
+        label: "Low",
+        data: [17, 19, 13, 14, 16, 12, 18],
+        borderColor: "rgb(53, 162, 235)",
+        backgroundColor: "rgba(53, 162, 235, 0.5)",
       },
     ],
   };
@@ -62,7 +61,7 @@ function Subcription() {
         </Button>
         <Button onClick={() => navigate(config.routes.revenue)}>Revenue</Button>
       </Space>
-      <Bar options={options} data={data} />
+      <Line options={options} data={data} />;
     </Card>
   );
 }

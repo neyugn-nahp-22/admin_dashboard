@@ -1,4 +1,4 @@
-import Revenue from "../../../components/Sidebar/Dashboard/Revenue";
+import Revenue from "../../../components/Content/Dashboard/Revenue";
 
 function RevenuePage() {
   return <Revenue />;

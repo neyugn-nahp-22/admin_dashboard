@@ -1,4 +1,4 @@
-import Subcription from "../../../components/Sidebar/Dashboard/Subcription";
+import Subcription from "../../../components/Content/Dashboard/Subcription";
 
 function SubciptionPage() {
   return <Subcription />;

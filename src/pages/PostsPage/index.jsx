@@ -1,4 +1,4 @@
-import Posts from "../../components/Sidebar/Posts";
+import Posts from "../../components/Content/Posts";
 
 function PostsPage() {
   return (

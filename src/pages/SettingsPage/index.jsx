@@ -1,4 +1,4 @@
-import Settings from "../../components/Sidebar/Settings";
+import Settings from "../../components/Content/Settings";
 
 function SettingsPage() {
   return (

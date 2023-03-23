@@ -1,4 +1,4 @@
-import Dashboard from "../../components/Sidebar/Dashboard";
+import Dashboard from "../../components/Content/Dashboard";
 
 function DashboardPage() {
   return <Dashboard />;
