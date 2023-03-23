@@ -1,8 +1,8 @@
 import Router from "../../routes";
 
-function Content() {
+function Content({ className }) {
   return (
-    <div>
+    <div className={className}>
       <Router />
     </div>
   );
