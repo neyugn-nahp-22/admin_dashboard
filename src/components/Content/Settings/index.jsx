@@ -1,11 +1,10 @@
-import { Button, Form, Input, Typography } from "antd";
-import "primereact/resources/themes/lara-light-indigo/theme.css";
-import "primereact/resources/primereact.min.css";
-import { ColorPicker } from "primereact/colorpicker";
-import { DatePicker } from "antd";
+import { Button, DatePicker, Form, Input, Typography } from "antd";
 import classNames from "classnames/bind";
-import styles from "./Settings.module.scss";
+import { ColorPicker } from "primereact/colorpicker";
+import "primereact/resources/primereact.min.css";
+import "primereact/resources/themes/lara-light-indigo/theme.css";
 import { useState } from "react";
+import styles from "./Settings.module.scss";
 const { RangePicker } = DatePicker;
 
 const cx = classNames.bind(styles);
@@ -16,7 +15,8 @@ function Settings() {
   const emailForm = Form.useWatch("email", form);
   const colorForm = Form.useWatch("colorPicker", form);
   const dateForm = Form.useWatch("datePicker", form);
-  const [color, setColor] = useState("ffffff");
+  const [color, setColor] = useState("");
+
   const onSubmit = (data) => {
     console.log(data);
   };
@@ -113,7 +113,7 @@ function Settings() {
               </Form.Item>
             </div>
           </div>
-          {titleForm || emailForm || colorForm || dateForm ? (
+          {titleForm || emailForm || colorForm || dateForm || color ? (
             <Button className="close-button" key="submit" htmlType="submit" type="primary">
               Save
             </Button>
