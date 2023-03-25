@@ -3,7 +3,6 @@ import classNames from "classnames/bind";
 import { ColorPicker } from "primereact/colorpicker";
 import "primereact/resources/primereact.min.css";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
-import { useState } from "react";
 import styles from "./Settings.module.scss";
 const { RangePicker } = DatePicker;
 
@@ -15,7 +14,6 @@ function Settings() {
   const emailForm = Form.useWatch("email", form);
   const colorForm = Form.useWatch("colorPicker", form);
   const dateForm = Form.useWatch("datePicker", form);
-  const [color, setColor] = useState("");
 
   const onSubmit = (data) => {
     console.log(data);
@@ -31,12 +29,22 @@ function Settings() {
   };
 
   return (
-    <div style={{ backgroundColor: `#${color}` }} className={cx("wrapper")}>
+    <div
+      style={{ backgroundColor: `#${form.getFieldValue("colorPicker")}` }}
+      className={cx("wrapper")}
+    >
       <Typography.Title level={4} className={cx("title")}>
         Settings
       </Typography.Title>
       <div>
-        <Form form={form} layout="vertical" name="title" style={{ width: 400 }} onFinish={onSubmit}>
+        <Form
+          initialValues={{ colorPicker: "ffffff" }}
+          form={form}
+          layout="vertical"
+          name="title"
+          style={{ width: 400 }}
+          onFinish={onSubmit}
+        >
           <div className={cx("container")}>
             <div className={cx("form-input")}>
               <Form.Item
@@ -63,11 +71,11 @@ function Settings() {
               >
                 <div>
                   <div className={cx("color-picker")}>
-                    <Input value={`#${color}`} className={cx("type")} />
+                    <Input value={`#${form.getFieldValue("colorPicker")}`} className={cx("type")} />
                     <ColorPicker
                       className={cx("color")}
-                      value={color}
-                      onChange={(e) => setColor(e.value)}
+                      value={form.getFieldValue("colorPicker")}
+                      onChange={(e) => form.setFieldValue("colorPicker", e.value)}
                     />
                   </div>
                 </div>
@@ -114,7 +122,7 @@ function Settings() {
               </Form.Item>
             </div>
           </div>
-          {titleForm || emailForm || colorForm || dateForm || color ? (
+          {titleForm || emailForm || colorForm || dateForm ? (
             <Button className="close-button" key="submit" htmlType="submit" type="primary">
               Save
             </Button>

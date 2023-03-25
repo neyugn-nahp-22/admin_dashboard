@@ -1,0 +1,25 @@
+.wrapper {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+
+  .id-user {
+    width: 10%;
+    margin-bottom: 20px;
+  }
+
+  .title {
+    width: 40%;
+    margin-bottom: 20px;
+  }
+
+  .content {
+    width: 40%;
+  }
+}
