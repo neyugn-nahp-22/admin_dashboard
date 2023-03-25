@@ -74,7 +74,7 @@ function Posts() {
           {
             title: "Action",
             width: 200,
-            render: (value, record) => {
+            render: (value) => {
               return <DetailData userId={value.id} title={value.title} body={value.body} />;
             },
           },
