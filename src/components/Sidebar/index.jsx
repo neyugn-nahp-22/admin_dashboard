@@ -10,6 +10,7 @@ function Sidebar() {
   return (
     <div className={cx("wrapper")}>
       <Menu
+        defaultSelectedKeys={["/dashboard"]}
         className={cx("menu-item")}
         mode="vertical"
         onClick={(item) => {
