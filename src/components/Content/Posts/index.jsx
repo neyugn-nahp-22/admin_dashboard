@@ -1,4 +1,4 @@
-import { Button, Form, Input, Table, Typography } from "antd";
+import { Button, Col, Form, Input, Row, Table, Typography } from "antd";
 import { useEffect, useState } from "react";
 import { getPosts } from "../../../api/postsApi";
 import DetailData from "./DetailData";
@@ -45,17 +45,27 @@ function Posts() {
 
   return (
     <>
-      <Form form={form} onFinish={handleSubmit}>
-        <Form.Item name="search">
-          <Input />
-        </Form.Item>
-        <Button type="submit" htmlType="submit">
-          SEARCH
-        </Button>
-      </Form>
       <Typography.Title style={{ color: "#4096ff" }} level={4}>
         Users Management
       </Typography.Title>
+      <Form layout="inline" form={form} onFinish={handleSubmit}>
+        <Row
+          gutter={[24, 24]}
+          className="auto-wrap"
+          style={{ display: "flex", alignItems: "center" }}
+        >
+          <Col xs={24} md={15}>
+            <Form.Item name="search">
+              <Input />
+            </Form.Item>
+          </Col>
+          <Col xs={24} md={9}>
+            <Button style={{ border: "1px solid #4096ff" }} type="submit" htmlType="submit">
+              SEARCH
+            </Button>
+          </Col>
+        </Row>
+      </Form>
       <Table
         columns={[
           { title: "User ID", dataIndex: "userId", key: "userId", width: 200 },
